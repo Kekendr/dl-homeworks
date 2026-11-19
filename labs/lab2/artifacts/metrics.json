@@ -1,0 +1,95 @@
+{
+  "track": "nlp",
+  "model": "cointegrated/rubert-tiny2",
+  "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+  "dataset": "Babelscape/wikineural",
+  "classes": [
+    "LOC",
+    "MISC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 92320,
+  "n_val": 11540,
+  "n_test": 11580,
+  "params_total": 29098929,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.5843722774656773,
+      "f1_macro": 0.5089478842707436,
+      "precision": 0.6450885454666048,
+      "recall": 0.5341021416803954
+    },
+    "random_head": {
+      "f1_micro": 0.029393424222334538,
+      "f1_macro": 0.028270139891322568,
+      "precision": 0.016691889635223688,
+      "recall": 0.12295442064799561
+    }
+  },
+  "final": {
+    "f1_micro": 0.8604238836911159,
+    "f1_macro": 0.831019637098843,
+    "precision": 0.8496471475515811,
+    "recall": 0.8714775113272185,
+    "token_f1": 0.874944062487287,
+    "per_type": {
+      "LOC": {
+        "precision": 0.9178932842686293,
+        "recall": 0.9285714285714286,
+        "f1-score": 0.9232014804533889,
+        "support": 8596
+      },
+      "MISC": {
+        "precision": 0.7479131886477463,
+        "recall": 0.7562457798784605,
+        "f1-score": 0.7520564042303173,
+        "support": 2962
+      },
+      "ORG": {
+        "precision": 0.7376899696048632,
+        "recall": 0.7954768928220256,
+        "f1-score": 0.7654944015139568,
+        "support": 3051
+      },
+      "PER": {
+        "precision": 0.871859296482412,
+        "recall": 0.8950988822012038,
+        "f1-score": 0.8833262621977089,
+        "support": 3489
+      }
+    }
+  },
+  "ablation": {
+    "setting": "freeze",
+    "split": "validation",
+    "full": {
+      "f1_micro": 0.8588212896733661,
+      "f1_macro": 0.8231938220620691,
+      "precision": 0.8507462686567164,
+      "recall": 0.8670510708401977,
+      "token_f1": 0.8705275420203029,
+      "train_sec": 297.407518802,
+      "trainable_params": 29098929
+    },
+    "freeze": {
+      "f1_micro": 0.6331137043211346,
+      "f1_macro": 0.5389269897303679,
+      "precision": 0.6109493897145192,
+      "recall": 0.656946732564525,
+      "token_f1": 0.6654151750633022,
+      "train_sec": 170.4361877240001,
+      "trainable_params": 2817
+    }
+  },
+  "errors": {
+    "correct": 15789,
+    "boundary": 672,
+    "type": 1376,
+    "missed": 373,
+    "spurious": 596
+  },
+  "device": "Tesla T4",
+  "train_time_sec": 297.407518802,
+  "fast_mode": false
+}
